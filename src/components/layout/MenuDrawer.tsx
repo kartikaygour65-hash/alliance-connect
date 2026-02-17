@@ -62,9 +62,9 @@ export function MenuDrawer() {
     // Add Admin Section if user is authorized
     ...(profile?.role === 'admin' ||
       profile?.role === 'developer' ||
-      profile?.username === 'arun' ||
+      profile?.username === 'kartikay' ||
       [
-        'carunbtech23@ced.alliance.edu.in',
+        'kartikaygour65@gmail.com',
         'gkartikaybtech23@ced.alliance.edu.in',
         'aateefbtech23@ced.alliance.edu.in',
         'sshlokbtech23@ced.alliance.edu.in',
