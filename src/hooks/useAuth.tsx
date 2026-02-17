@@ -69,7 +69,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const isAdmin = !!(
     user?.email && [
-      'kartikaygour65@gmail.com',
+      'carunbtech23@ced.alliance.edu.in',
       'gkartikaybtech23@ced.alliance.edu.in',
       'aateefbtech23@ced.alliance.edu.in',
       'sshlokbtech23@ced.alliance.edu.in'

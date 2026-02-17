@@ -258,7 +258,7 @@ export function PostCard({ post, onDeleted }: any) {
   const isElite = (author.total_aura || 0) >= 500;
   const isStealth = post.is_stealth;
 
-  const canPin = user?.email === 'kartikaygour65@gmail.com' ||
+  const canPin = user?.email === 'carunbtech23@ced.alliance.edu.in' ||
     user?.email === 'auconnecx@gmail.com' ||
     user?.email === 'gkartikay23@ced.alliance.edu.in' ||
     user?.email === 'shlok24@ced.alliance.edu.in' ||
