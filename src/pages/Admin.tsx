@@ -51,13 +51,18 @@ export default function Admin() {
 
   const fetchRequests = async () => {
     setLoading(true);
+    // Fetch ONLY pending requests
     const { data: reqData, error: reqError } = await supabase
       .from('profiles')
       .select('*')
       .eq('verification_status', 'pending');
 
-    if (reqError) toast.error("Failed to fetch requests");
-    else setRequests(reqData || []);
+    if (reqError) {
+      toast.error("Failed to fetch requests");
+      setRequests([]);
+    } else {
+      setRequests(reqData || []);
+    }
 
     setLoading(false);
   };
@@ -94,11 +99,11 @@ export default function Admin() {
   const handleApprove = async (targetProfile: any) => {
     setProcessingId(targetProfile.user_id);
     try {
-      // 1. Update Profile via Secure RPC (bypasses potential RLS issues)
-      const { error } = await supabase.rpc('admin_verify_user', {
-        target_user_id: targetProfile.user_id,
-        should_verify: true
-      });
+      // 1. Update Profile directly
+      const { error } = await supabase
+        .from('profiles')
+        .update({ verification_status: 'verified' })
+        .eq('user_id', targetProfile.user_id);
 
       if (error) throw error;
 

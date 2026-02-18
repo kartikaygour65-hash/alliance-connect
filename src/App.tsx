@@ -1,8 +1,8 @@
 
 import { Suspense, lazy } from "react";
-import { Toaster } from "./components/ui/toaster";
-import { Toaster as Sonner } from "./components/ui/sonner";
-import { TooltipProvider } from "./components/ui/tooltip";
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/hooks/useAuth";
@@ -41,6 +41,7 @@ const Leaderboard = lazy(() => import("./pages/Leaderboard"));
 const PostDetails = lazy(() => import("./pages/PostDetails"));
 const ResetPassword = lazy(() => import("./pages/ResetPassword"));
 const VerifyEmail = lazy(() => import("./pages/VerifyEmail"));
+const CampusHub = lazy(() => import("./pages/CampusHub"));
 
 function RecoveryRedirect() {
   const navigate = useNavigate();
@@ -102,20 +103,20 @@ export default function App() {
                       <Route path="/create" element={<Create />} />
                       <Route path="/activity" element={<Activity />} />
                       <Route path="/messages" element={<Messages />} />
-                      <Route path="/mess-menu" element={<MessMenuPage />} />
+                      <Route path="/mess-menu" element={<CampusHub initialTab="mess" />} />
                       <Route path="/secret-room" element={<SecretRoom />} />
                       <Route path="/polls" element={<Polls />} />
                       <Route path="/lost-found" element={<LostFound />} />
                       <Route path="/circles" element={<Circles />} />
                       <Route path="/circles/:id" element={<CircleDetail />} />
-                      <Route path="/events" element={<Events />} />
+                      <Route path="/events" element={<CampusHub initialTab="events" />} />
                       <Route path="/internships" element={<Internships />} />
                       <Route path="/marketplace" element={<Marketplace />} />
                       <Route path="/study-groups" element={<StudyGroups />} />
                       <Route path="/settings" element={<Settings />} />
                       <Route path="/reels" element={<Reels />} />
                       <Route path="/saved" element={<Saved />} />
-                      <Route path="/leaderboard" element={<Leaderboard />} />
+                      <Route path="/leaderboard" element={<CampusHub initialTab="leaderboard" />} />
                       <Route path="/post/:id" element={<PostDetails />} />
                       <Route path="/reset-password" element={<ResetPassword />} />
                       <Route path="/verify-email" element={<VerifyEmail />} />
